@@ -11,7 +11,7 @@ static void init(void) {
 	
   // Create a text layer and set the text
 	s_text_layer = text_layer_create(bounds);
-	text_layer_set_text(s_text_layer, "Hi, I'm a Pebble!");
+	text_layer_set_text(s_text_layer, "Huhej");
   
   // Set the font and text alignment
 	text_layer_set_font(s_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
