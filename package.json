@@ -1,0 +1,21 @@
+{
+    "author": "pebble@solsort.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "pebble-hello",
+    "pebble": {
+        "displayName": "pebble-hello",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "uuid": "78a44e2d-751c-4f3d-9797-5afe433b78de",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
