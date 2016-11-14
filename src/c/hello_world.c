@@ -44,11 +44,14 @@ int main(void) {
 	app_event_loop();
 	deinit();
 }
-#endif
-#if defined(__EMSCRIPTEN__)
+#else
+
 #include <stdio.h>
+#include <unistd.h>
 #include <SDL/SDL.h>
+#if defined(__EMSCRIPTEN__)
 #include <emscripten.h>
+#endif
 
 int main(int argc, char** argv) {
   printf("hello, world!\n");
@@ -56,8 +59,10 @@ int main(int argc, char** argv) {
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Surface *screen = SDL_SetVideoMode(256, 256, 32, SDL_SWSURFACE);
 
+#ifdef __EMSCRIPTEN__
 #ifdef TEST_SDL_LOCK_OPTS
   EM_ASM("SDL.defaults.copyOnLock = false; SDL.defaults.discardOnLock = true; SDL.defaults.opaqueFrontBuffer = false;");
+#endif
 #endif
 
   if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
@@ -80,6 +85,7 @@ int main(int argc, char** argv) {
   printf("you should see a smoothly-colored square - no sharp lines but the square borders!\n");
   printf("and here is some text that should be HTML-friendly: amp: |&| double-quote: |\"| quote: |'| less-than, greater-than, html-like tags: |<cheez></cheez>|\nanother line.\n");
 
+  sleep(3);
   SDL_Quit();
 
   return 0;

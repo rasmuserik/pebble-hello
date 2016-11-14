@@ -1,0 +1,8 @@
+cmake_minimum_required (VERSION 2.6)
+project (hello)
+add_executable(${PROJECT_NAME} ./src/c/hello_world.c)
+
+INCLUDE(FindPkgConfig)
+PKG_SEARCH_MODULE(SDL12 REQUIRED sdl)
+INCLUDE_DIRECTORIES(${SDL12_INCLUDE_DIRS})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL12_LIBRARIES})
